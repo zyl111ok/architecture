@@ -97,7 +97,6 @@
                 android:layout_height="32dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/chatting_setmode_voice_btn"
-                android:onClick="setModeVoice"
                 android:visibility="visible" />
 
             <Button
@@ -106,7 +105,6 @@
                 android:layout_height="32dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/chatting_setmode_keyboard_btn"
-                android:onClick="setModeKeyboard"
                 android:visibility="gone" />
 
             <LinearLayout
@@ -149,7 +147,6 @@
                     android:background="@null"
                     android:maxLines="3"
                     android:minHeight="40dp"
-                    android:onClick="editClick"
                     android:paddingBottom="3dp"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
