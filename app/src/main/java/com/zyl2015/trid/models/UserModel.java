@@ -1,4 +1,4 @@
-package com.zyl2015.trid.entity;
+package com.zyl2015.trid.models;
 
 /**
  * Created by zyl on 2015/10/25.
@@ -8,7 +8,7 @@ import com.zyl2015.trid.util.UserUtil;
 /**
  * 通信实体类
  */
-public class User {
+public class UserModel {
 
     private String userName;
     private String nickName;
@@ -54,10 +54,10 @@ public class User {
 
     @Override
     public boolean equals(Object o){
-        if(o==null || !(o instanceof User)){
+        if(o==null || !(o instanceof UserModel)){
             return false;
         }
-        return getUserName().equals(((User) o).getUserName());
+        return getUserName().equals(((UserModel) o).getUserName());
     }
 
     @Override

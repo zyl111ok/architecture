@@ -3,10 +3,9 @@ package com.zyl2015.trid.dao;
 import android.content.Context;
 import android.util.Log;
 
-import com.zyl2015.trid.data.DbHelper;
 import com.zyl2015.trid.data.DbHelperFactory;
 import com.zyl2015.trid.data.UserDbHelper;
-import com.zyl2015.trid.entity.User;
+import com.zyl2015.trid.models.UserModel;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ import java.util.List;
  * IBaseDao的具体实现类，为用户数据的数据库操作提供接口
  * Created by zyl on 2015/10/27.
  */
-public class UserDao implements IBaseDao<User> {
+public class UserDao implements IBaseDao<UserModel> {
     //通过context来使用android sdk提供的数据库访问api
     private Context context;
     private UserDbHelper userDbHelper;
@@ -31,21 +30,21 @@ public class UserDao implements IBaseDao<User> {
         Log.i(TAG,"create table ok");
     }
     @Override
-    public void insert(User user){
+    public void insert(UserModel userModel){
 
     }
     @Override
-    public void insertModels(List<User> list){
+    public void insertModels(List<UserModel> list){
 
     }
     @Override
-    public User rawQuery(String tableName,String columName,String columValue){
-        User user=null;
-        return user;
+    public UserModel rawQuery(String tableName,String columName,String columValue){
+        UserModel userModel =null;
+        return userModel;
     }
     @Override
-    public List<User> rawsQuery(String tableName,String columName,String columValue){
-        List<User> list=null;
+    public List<UserModel> rawsQuery(String tableName,String columName,String columValue){
+        List<UserModel> list=null;
         return  list;
     }
     @Override
@@ -59,10 +58,10 @@ public class UserDao implements IBaseDao<User> {
      * @param columValue
      * @return
      */
-    public User getUser(String tableName,String columName,String columValue){
-        User user;
-        user=rawQuery(tableName, columName, columValue);
-        return user;
+    public UserModel getUser(String tableName,String columName,String columValue){
+        UserModel userModel;
+        userModel =rawQuery(tableName, columName, columValue);
+        return userModel;
     }
 
     /**
@@ -72,8 +71,8 @@ public class UserDao implements IBaseDao<User> {
      * @param columValue
      * @return
      */
-    public List<User> getContactList(String tableName,String columName,String columValue){
-        List<User> list;
+    public List<UserModel> getContactList(String tableName,String columName,String columValue){
+        List<UserModel> list;
         list=rawsQuery(tableName, columName, columValue);
         return list;
     }

@@ -7,11 +7,7 @@ import com.zyl2015.trid.ctrler.loginhandler.FriendListHandler;
 import com.zyl2015.trid.ctrler.loginhandler.LoginHandler;
 import com.zyl2015.trid.dao.DaoFactory;
 import com.zyl2015.trid.dao.UserDao;
-import com.zyl2015.trid.entity.User;
-import com.zyl2015.trid.enums.RefreshType;
-import com.zyl2015.trid.ui.activities.IRefreshListener;
 import com.zyl2015.trid.ui.activities.login.LoginActivity;
-import com.zyl2015.trid.util.HttpUtil;
 import com.zyl2015.trid.value.CommonValue;
 
 import org.json.JSONException;

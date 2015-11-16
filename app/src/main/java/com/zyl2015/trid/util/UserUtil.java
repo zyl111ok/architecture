@@ -1,6 +1,6 @@
 package com.zyl2015.trid.util;
 
-import com.zyl2015.trid.entity.User;
+import com.zyl2015.trid.models.UserModel;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,15 +10,15 @@ import java.util.Map;
  * Created by zyl on 2015/10/26.
  */
 public class UserUtil {
-    private static Map<String,User> map=new HashMap<String,User>();
+    private static Map<String,UserModel> map=new HashMap<String,UserModel>();
 
     /**
      * User实例化之后，即向该类登记注册User，并一直持有它，确保User不被GC过早的回收
      * @param name
-     * @param user
+     * @param userModel
      */
-    public static void putUserByName(String name,User user){
-        map.put(name,user);
+    public static void putUserByName(String name,UserModel userModel){
+        map.put(name, userModel);
     }
 
     public static void removeUserByName(String name) {
@@ -27,9 +27,9 @@ public class UserUtil {
         }
     }
 
-    public static User getUserByName(String name){
-        User user;
-        user=map.get(name);
-        return user;
+    public static UserModel getUserByName(String name){
+        UserModel userModel;
+        userModel =map.get(name);
+        return userModel;
     }
 }
