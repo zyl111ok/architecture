@@ -19,6 +19,7 @@ import com.zyl2015.trid.ctrler.ChatCtrler;
 import com.zyl2015.trid.enums.RefreshType;
 import com.zyl2015.trid.ui.activities.BaseActivity;
 import com.zyl2015.trid.ui.activities.IRefreshListener;
+import com.zyl2015.trid.ui.adapter.MessageAdapter;
 import com.zyl2015.trid.ui.widgets.dialog.AlertDialog;
 import com.zyl2015.trid.ui.widgets.view.PasteEditText;
 
@@ -107,6 +108,8 @@ public class ChatActivity extends BaseActivity  {
     //显示语音按钮
     private Button btn_set_mode_voice;
 
+    private MessageAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +119,7 @@ public class ChatActivity extends BaseActivity  {
 
     private void initialize() {
         initView();
-        ctrler = new ChatCtrler(this);
+        ctrler = new ChatCtrler(this,conversation);
         chatCtrler = (ChatCtrler) ctrler;
 
     }
@@ -299,7 +302,46 @@ public class ChatActivity extends BaseActivity  {
     }
 
     public void handlerUI(RefreshType type) {
+        switch (type){
+            case ADAPTERSELECTLAST:
+                adapter.refreshSelectLast();
+                break;
+            case ADAPTERDATACHANGE:
+                adapter.notifyDataSetChanged();
+                break;
+            case CLEAREDITTEXT:
+                mEditTextContent.setText("");
+                break;
+            case SETRESULT:
+                setResult(RESULT_OK);
+                break;
+            case NEWMSG:{
+                if(adapter == null){
+                    return;
+                }
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        adapter.refreshSelectLast();
+                    }
+                });
+                break;
+            }
+            case CHATUI:{
+                if(adapter == null){
+                    return;
+                }
 
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        adapter.refresh();
+                    }
+                });
+            }
+        }
+    }
+
+    public String getToChatUsername(){
+        return toChatUsername;
     }
 
 }

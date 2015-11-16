@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.easemob.chat.EMChat;
 import com.easemob.chat.EMChatDB;
 import com.zyl2015.trid.R;
 import com.zyl2015.trid.ctrler.BaseCtrler;
@@ -43,6 +44,7 @@ public class LoginActivity extends BaseActivity {
         ctrler=new LoginCtrler(this);
         loginCtrler=(LoginCtrler)ctrler;
         loginCtrler.setHandler(handler);
+        EMChat.getInstance().init(getApplicationContext());
     }
 
     /**
