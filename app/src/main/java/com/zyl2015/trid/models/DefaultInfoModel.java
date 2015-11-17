@@ -2,7 +2,7 @@ package com.zyl2015.trid.models;
 
 import android.content.Context;
 
-import com.zyl2015.trid.data.InfoUtil;
+import com.zyl2015.trid.data.InfoAccessHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +22,7 @@ public class DefaultInfoModel extends InfoModel {
 
     @Override
     public void setSettingMsgNotification(boolean paramBoolean) {
-        InfoUtil.getInstance(context).setSettingMsgNotification(paramBoolean);
+        InfoAccessHelper.getInstance(context).setSettingMsgNotification(paramBoolean);
         valueCache.put(Key.VibrateAndPlayToneOn,paramBoolean);
     }
 
@@ -31,7 +31,7 @@ public class DefaultInfoModel extends InfoModel {
         Object val = valueCache.get(Key.VibrateAndPlayToneOn);
 
         if(val == null){
-            val = InfoUtil.getInstance(context).getSettingMsgNotification();
+            val = InfoAccessHelper.getInstance(context).getSettingMsgNotification();
             valueCache.put(Key.VibrateAndPlayToneOn, val);
         }
 
@@ -40,7 +40,7 @@ public class DefaultInfoModel extends InfoModel {
 
     @Override
     public void setSettingMsgSound(boolean paramBoolean) {
-        InfoUtil.getInstance(context).setSettingMsgSound(paramBoolean);
+        InfoAccessHelper.getInstance(context).setSettingMsgSound(paramBoolean);
         valueCache.put(Key.PlayToneOn, paramBoolean);
     }
 
@@ -49,7 +49,7 @@ public class DefaultInfoModel extends InfoModel {
         Object val = valueCache.get(Key.PlayToneOn);
 
         if(val == null){
-            val = InfoUtil.getInstance(context).getSettingMsgSound();
+            val = InfoAccessHelper.getInstance(context).getSettingMsgSound();
             valueCache.put(Key.PlayToneOn, val);
         }
 
@@ -58,7 +58,7 @@ public class DefaultInfoModel extends InfoModel {
 
     @Override
     public void setSettingMsgVibrate(boolean paramBoolean) {
-        InfoUtil.getInstance(context).setSettingMsgVibrate(paramBoolean);
+        InfoAccessHelper.getInstance(context).setSettingMsgVibrate(paramBoolean);
         valueCache.put(Key.VibrateOn, paramBoolean);
     }
 
@@ -67,7 +67,7 @@ public class DefaultInfoModel extends InfoModel {
         Object val = valueCache.get(Key.VibrateOn);
 
         if(val == null){
-            val = InfoUtil.getInstance(context).getSettingMsgVibrate();
+            val = InfoAccessHelper.getInstance(context).getSettingMsgVibrate();
             valueCache.put(Key.VibrateOn, val);
         }
 
@@ -76,7 +76,7 @@ public class DefaultInfoModel extends InfoModel {
 
     @Override
     public void setSettingMsgSpeaker(boolean paramBoolean) {
-        InfoUtil.getInstance(context).setSettingMsgSpeaker(paramBoolean);
+        InfoAccessHelper.getInstance(context).setSettingMsgSpeaker(paramBoolean);
         valueCache.put(Key.SpakerOn, paramBoolean);
     }
 
@@ -85,7 +85,7 @@ public class DefaultInfoModel extends InfoModel {
         Object val = valueCache.get(Key.SpakerOn);
 
         if(val == null){
-            val = InfoUtil.getInstance(context).getSettingMsgSpeaker();
+            val = InfoAccessHelper.getInstance(context).getSettingMsgSpeaker();
             valueCache.put(Key.SpakerOn, val);
         }
 
@@ -94,52 +94,52 @@ public class DefaultInfoModel extends InfoModel {
 
     @Override
     public boolean setHXId(String hxId) {
-       return InfoUtil.getInstance(context).setHXId(hxId);
+       return InfoAccessHelper.getInstance(context).setHXId(hxId);
     }
 
     @Override
     public String getHXId() {
-        return InfoUtil.getInstance(context).getHXId();
+        return InfoAccessHelper.getInstance(context).getHXId();
     }
 
     @Override
     public boolean setPwd(String hxPwd) {
-       return InfoUtil.getInstance(context).setHxPwd(hxPwd);
+       return InfoAccessHelper.getInstance(context).setHxPwd(hxPwd);
     }
 
     @Override
     public String getPwd() {
-        return InfoUtil.getInstance(context).getHxPwd();
+        return InfoAccessHelper.getInstance(context).getHxPwd();
     }
 
     @Override
     public boolean saveToken(String token) {
-        return InfoUtil.getInstance(context).setToken(token);
+        return InfoAccessHelper.getInstance(context).setToken(token);
     }
 
     @Override
     public String getToken() {
-        return InfoUtil.getInstance(context).getToken();
+        return InfoAccessHelper.getInstance(context).getToken();
     }
 
     @Override
     public void setBasicInfoRequired(boolean paramBoolean) {
-        InfoUtil.getInstance(context).setBasicInfoRequired(paramBoolean);
+        InfoAccessHelper.getInstance(context).setBasicInfoRequired(paramBoolean);
     }
 
     @Override
     public boolean getBasicInfoRequired() {
-        return InfoUtil.getInstance(context).getBasicInfoRequired();
+        return InfoAccessHelper.getInstance(context).getBasicInfoRequired();
     }
 
     @Override
     public void setAlreadyLogin(boolean paramBoolean) {
-         InfoUtil.getInstance(context).setAlreadyLogin(paramBoolean);
+         InfoAccessHelper.getInstance(context).setAlreadyLogin(paramBoolean);
     }
 
     @Override
     public boolean getAlreadyLogin() {
-        return InfoUtil.getInstance(context).getAlreadyLogin();
+        return InfoAccessHelper.getInstance(context).getAlreadyLogin();
     }
 
     @Override

@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.easemob.chat.EMChat;
-import com.easemob.chat.EMChatDB;
 import com.zyl2015.trid.R;
 import com.zyl2015.trid.ctrler.BaseCtrler;
 import com.zyl2015.trid.ctrler.LoginCtrler;
 import com.zyl2015.trid.enums.RefreshType;
 import com.zyl2015.trid.ui.activities.BaseActivity;
-import com.zyl2015.trid.ui.activities.IRefreshListener;
 import com.zyl2015.trid.ui.activities.chat.ChatActivity;
 
 import android.os.Handler;

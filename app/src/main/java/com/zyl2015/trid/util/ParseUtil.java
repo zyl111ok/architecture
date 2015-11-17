@@ -22,23 +22,23 @@ import com.easemob.chat.VoiceMessageBody;
 
 
 /**
- * 单例模式,json解析器
+ * 单例模式,json数据解析器
  * @author zyl
  *
  */
-public class JsonParser {
-	private static JsonParser parser=null;
+public class ParseUtil {
+	private static ParseUtil parser=null;
 	private EMConversation conversation;
 	private List<EMMessage> list;
 	private EMMessage msg;
 	private static String chatName;
-	private final static String TAG="JsonParser";
+	private final static String TAG="ParseUtil";
 	//私有构造器，防止非法创建
-	private JsonParser(){}
+	private ParseUtil(){}
 	//创建一个单例
-	public static synchronized JsonParser getInstance(){
+	public static synchronized ParseUtil getInstance(){
 		if(parser==null){
-			parser=new JsonParser();
+			parser=new ParseUtil();
 		}
 		return parser;
 	}

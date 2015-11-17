@@ -11,7 +11,7 @@ import com.zyl2015.trid.ctrler.msgsender.ISender;
 import com.zyl2015.trid.ctrler.msgsender.Sender;
 import com.zyl2015.trid.enums.RefreshType;
 import com.zyl2015.trid.ui.activities.chat.ChatActivity;
-import com.zyl2015.trid.util.JsonParser;
+import com.zyl2015.trid.util.ParseUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,7 +53,7 @@ public class ChatCtrler extends BaseCtrler implements EMEventListener{
         public void onSuccess(String result){
             try {
                 JSONObject obj = new JSONObject(result);
-                conversation= JsonParser.getInstance().getConversation(obj);
+                conversation= ParseUtil.getInstance().getConversation(obj);
                 ChatCtrler.this.notifyRefresh(RefreshType.ADAPTERDATACHANGE);
             }
             catch (JSONException e){

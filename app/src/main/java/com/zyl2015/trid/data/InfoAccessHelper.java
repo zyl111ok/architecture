@@ -4,15 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.zyl2015.trid.models.UserModel;
-
 /**
  * 数据存取类，用于存放个人基本信息
  * Created by zyl on 2015/10/27.
  */
-public class InfoUtil {
+public class InfoAccessHelper {
 
-    private static InfoUtil instance=null;
+    private static InfoAccessHelper instance=null;
     private static Context context;
     private static SharedPreferences mShare;
     private static final String PREFERENCE_NAME="userInfo";
@@ -28,11 +26,11 @@ public class InfoUtil {
     private String HXPWD="hxpwd";
 
 
-    private InfoUtil(){}
+    private InfoAccessHelper(){}
     //单例创建该实例
-    public static synchronized InfoUtil getInstance(Context mcontext){
+    public static synchronized InfoAccessHelper getInstance(Context mcontext){
         if (instance==null){
-            instance=new InfoUtil();
+            instance=new InfoAccessHelper();
             context=mcontext;
             mShare=context.getSharedPreferences(PREFERENCE_NAME, Activity.MODE_PRIVATE);
             editor=mShare.edit();
