@@ -1,80 +1,58 @@
 package com.zyl2015.trid.dao;
 
-import android.content.Context;
-import android.util.Log;
-
-import com.zyl2015.trid.data.DbHelperFactory;
-import com.zyl2015.trid.data.UserDbHelper;
 import com.zyl2015.trid.models.UserModel;
 
-import java.util.List;
-
 /**
- * IBaseDao的具体实现类，为用户数据的数据库操作提供接口
- * Created by zyl on 2015/10/27.
+ * 抽象类接口，操作用户数据
+ * Created by Administrator on 2015/11/19.
  */
-public class UserDao implements IBaseDao<UserModel> {
-    //通过context来使用android sdk提供的数据库访问api
-    private Context context;
-    private UserDbHelper userDbHelper;
-    private static String TAG="UserDao";
-    public UserDao(Context context){
-        this.context=context;
-        userDbHelper=(UserDbHelper)DbHelperFactory.createDbHelper(UserDbHelper.class,context);
-    }
-
-
-    @Override
-    public void createTable(){
-        userDbHelper.createTable();
-        Log.i(TAG,"create table ok");
-    }
-    @Override
-    public void insert(UserModel userModel){
-
-    }
-    @Override
-    public void insertModels(List<UserModel> list){
-
-    }
-    @Override
-    public UserModel rawQuery(String tableName,String columName,String columValue){
-        UserModel userModel =null;
-        return userModel;
-    }
-    @Override
-    public List<UserModel> rawsQuery(String tableName,String columName,String columValue){
-        List<UserModel> list=null;
-        return  list;
-    }
-    @Override
-    public void delete(int id,String tableName){
-
-    }
+public interface UserDao extends IBaseDao<UserModel> {
     /**
-     * 对外提供的接口，得到一个用户的数据
-     * @param tableName
-     * @param columName
-     * @param columValue
-     * @return
+     * 建表的抽象操作
      */
-    public UserModel getUser(String tableName,String columName,String columValue){
-        UserModel userModel;
-        userModel =rawQuery(tableName, columName, columValue);
-        return userModel;
-    }
+    void createTable();
 
     /**
-     * 对外提供的接口，得到一组用户的数据
-     * @param tableName
-     * @param columName
-     * @param columValue
+     * 向表中插入数据的抽象操作
+     * @param user
+     */
+    void setUserInfo(UserModel user);
+
+    /**
+     * 修改表中数据的抽象接口
+     * @param user
+     */
+    void changeUserInfo(UserModel user,String valueType,String newValue);
+    /**
+     * 从数据库中查询，并得到用户的聊天标题
      * @return
      */
-    public List<UserModel> getContactList(String tableName,String columName,String columValue){
-        List<UserModel> list;
-        list=rawsQuery(tableName, columName, columValue);
-        return list;
-    }
+    String getUserChatTitle(String username);
+
+    /**
+     * 从数据库中查询，并得到用户的电话号码
+     * @return
+     */
+    String getTel(String username);
+
+    /**
+     * 从数据库中查询,得到到期时间
+     * @return
+     */
+    long getAvtar(String username);
+
+    /**
+     * 从数据库中删除用户
+     * @param username
+     */
+    void deleteUser(String username);
+
+    /**
+     * 得到数据模型，这里是User
+     * @return
+     */
+    @Override
+    UserModel getModel();
+
 
 }

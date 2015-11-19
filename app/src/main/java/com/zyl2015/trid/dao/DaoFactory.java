@@ -1,7 +1,9 @@
 package com.zyl2015.trid.dao;
 
 import android.content.Context;
-import android.util.Log;
+
+import com.zyl2015.trid.dao.Impl.InfoDaoImpl;
+import com.zyl2015.trid.dao.Impl.UserDaoImpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,17 +30,17 @@ public class DaoFactory {
         IBaseDao dao = null;
         try {
             String s=c.getSimpleName();
-            if (s.equals("UserDao")) {
+            if (s.equals("UserDaoImpl")) {
                 dao=map.get(Key.UserDao);
                 if(dao==null) {
-                    dao = new UserDao(context);
+                    dao = new UserDaoImpl(context);
                     map.put(Key.UserDao,dao);
                 }
             }
-            else if(s.equals("InfoDao")) {
+            else if(s.equals("InfoDaoImpl")) {
                 dao = map.get(Key.InfoDao);
                 if (dao == null) {
-                    dao = new InfoDao(context);
+                    dao = new InfoDaoImpl(context);
                     map.put(Key.InfoDao,dao);
                 }
             }

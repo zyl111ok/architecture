@@ -1,6 +1,7 @@
 package com.zyl2015.trid.ctrler.loginhandler;
 
 import com.zyl2015.trid.ctrler.LoginCtrler;
+import com.zyl2015.trid.dao.Impl.UserDaoImpl;
 import com.zyl2015.trid.dao.UserDao;
 
 /**

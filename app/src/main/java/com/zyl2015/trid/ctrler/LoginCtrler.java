@@ -6,6 +6,7 @@ import com.zyl2015.trid.ctrler.loginhandler.ConfirmHandler;
 import com.zyl2015.trid.ctrler.loginhandler.FriendListHandler;
 import com.zyl2015.trid.ctrler.loginhandler.LoginHandler;
 import com.zyl2015.trid.dao.DaoFactory;
+import com.zyl2015.trid.dao.Impl.UserDaoImpl;
 import com.zyl2015.trid.dao.UserDao;
 import com.zyl2015.trid.ui.activities.login.LoginActivity;
 import com.zyl2015.trid.value.CommonValue;
@@ -30,7 +31,7 @@ public class LoginCtrler extends BaseCtrler {
     public LoginCtrler(Context context){
         this.context=context;
         setResponseListener(new LoginRspListener());
-        dao=(UserDao)DaoFactory.getInstance().createDao(UserDao.class,context);
+        dao=(UserDao)DaoFactory.getInstance().createDao(UserDaoImpl.class,context);
         refreshListener=((LoginActivity)context).getRefreshListener();
 
     }

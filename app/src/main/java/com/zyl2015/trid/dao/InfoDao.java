@@ -1,100 +1,67 @@
 package com.zyl2015.trid.dao;
 
-import android.content.Context;
-
-import com.easemob.chat.EMChat;
-import com.zyl2015.trid.models.DefaultInfoModel;
 import com.zyl2015.trid.models.InfoModel;
+import com.zyl2015.trid.models.UserModel;
 
 /**
- * 用于操作用户基本信息的类，包含一些全局操作
- * Created by Administrator on 2015/11/17.
+ * Created by Administrator on 2015/11/19.
  */
-public class InfoDao extends DaoAdapter<InfoModel>{
-    private static final String TAG="InfoAccessHelper";
-    private Context context;
-    private InfoModel infoModel;
-    private String hxId;
-    private String password;
-    private String token;
-    private boolean sdkInited=false;
-    private boolean network_state=true;
-    private static InfoDao infodao=null;
-
-    public InfoDao(Context context){
-        this.context=context;
-        init(context);
-    }
-
-    private synchronized boolean init(Context context){
-        if(sdkInited){
-            return true;
-        }
-        infoModel=new DefaultInfoModel(context);
-        EMChat.getInstance().init(context);
-        sdkInited =true;
-        return true;
-    }
-
+public interface InfoDao extends IBaseDao<InfoModel> {
     @Override
-    public void insert(Object infoModel){
-        //stub method
-    }
+    InfoModel getModel();
 
-    public InfoModel getInfoModel(){
-        return infoModel;
-    }
+    /**
+     * 获取环信id
+     * @return
+     */
+    String getHxId();
 
-    public String getHxId(){
-        if(hxId==null){
-            hxId=infoModel.getHXId();
-        }
-        return  hxId;
-    }
+    /**
+     * 获取密码
+     * @return
+     */
+    String getPwd();
 
-    public String getPwd(){
-        if(password==null){
-            password=infoModel.getPwd();
-        }
-        return password;
-    }
+    /**
+     * 获取token
+     * @return
+     */
+    String getToken();
 
-    public String getToken(){
-        if(token==null){
-            token=infoModel.getToken();
-        }
-        return token;
-    }
+    /**
+     * 判断是否已经登录
+     * @return
+     */
+    boolean getAlreadyLogin();
 
-    public boolean getAlreadyLogin(){
-        return infoModel.getAlreadyLogin();
-    }
+    /**
+     * 判断是否需要基础信息
+     * @return
+     */
+    boolean getBasicInfoRequired();
 
-    public boolean getBasicInfoRequred(){
-        return infoModel.getBasicInfoRequired();
-    }
+    /**
+     * 保存环信id
+     * @param hxId
+     */
+    void setHxId(String hxId);
 
-    public void setHxId(String hxId) {
-        if(infoModel.setHXId(hxId)) {
-            this.hxId = hxId;
-        }
-    }
+    /**
+     * 保存环信密码
+     * @param pwd
+     */
+    void setPwd(String pwd);
 
-    public void setPassword(String password) {
-        if(infoModel.setPwd(password)) {
-            this.password = password;
-        }
-    }
+    /**
+     * 保存token
+     * @param token
+     */
+    void setToken(String token);
 
-    public void setToken(String token) {
-        if(infoModel.saveToken(token)) {
-            this.token = token;
-        }
-    }
-
-    public void setAlreadyLogin(boolean paramBoolean){
-        infoModel.setAlreadyLogin(paramBoolean);
-    }
-
+    /**
+     * 保存登录信息
+     * @param paramBoolean
+     */
+    void setAlreadyLogin(boolean paramBoolean);
 
 }

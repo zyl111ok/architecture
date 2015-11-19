@@ -15,12 +15,21 @@ public class UserModel {
     private String tel;
     private String token;
     private String chat_title;
+    private int type;
     //过期时间
     private long avatar;
 
     public void setUserName(String userName){
         this.userName=userName;
         UserUtil.putUserByName(userName,this);
+    }
+
+    public void setAvatar(long avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public void setNickName(String nickName){
@@ -37,6 +46,19 @@ public class UserModel {
 
     public void setChat_title(String chat_title){
         this.chat_title=chat_title;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public long getAvatar() {
+
+        return avatar;
+    }
+
+    public int getType() {
+        return type;
     }
 
     public String getUserName(){return this.userName;}
